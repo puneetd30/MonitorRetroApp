@@ -1,8 +1,8 @@
-const express = require('express')
-const app = express()
-const port = process.env.PORT || 8001
-const bodyParser = require('body-parser')
-const jsonParser = bodyParser.json()
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3003;
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
 const config = require('./config');
 var MongoClient = require('mongodb').MongoClient;
 
