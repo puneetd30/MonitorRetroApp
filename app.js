@@ -11,7 +11,6 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 });
 
-
 const cron = require('node-cron');
 
 cron.schedule('0 1 * * *', () => {
@@ -40,7 +39,6 @@ cron.schedule('0 1 * * *', () => {
 
         db.collection('incidents').find({ 'appName': r._id, 'startTime': { '$gte': yesterday, '$lt': today } })
           .toArray((err, res) => {
-            // console.log('appincidents: '+res);
             let incidentsArr = []
 
             if (res.length == 0) {
@@ -50,12 +48,8 @@ cron.schedule('0 1 * * *', () => {
             res.forEach(r => {
               console.log(r);
               incidentsArr.push(r);
-
             });
-
             db.collection(`${r._id}_retro`).insertOne({ status: appRetro.status, incidents: incidentsArr.length == 0 ? [] : incidentsArr, reportDate: yesterday, createTime: new Date(Date.now()) });
-
-
           });
 
         console.log(appRetro);
