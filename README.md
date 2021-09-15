@@ -6,7 +6,9 @@ Every Registered app has app_retro collection to store info.
 
 ## Run local
 In config.js, uncomment the localhost one for running locally
+
 Use npm install to download all dependencies
+
 Use npm start for local run
 
 Please ensure mongodb is installed for local run
