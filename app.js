@@ -11,6 +11,10 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 });
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html')
+})
+
 const cron = require('node-cron');
 
 cron.schedule('0 1 * * *', () => {
